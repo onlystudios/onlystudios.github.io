@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OnlyStudios</title>
+    <title>OnlyStudios - Game Studio</title>
     <style>
+        /* Basic styling for the website */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -12,109 +13,95 @@
         }
 
         header {
-            background-color: #ffcc00;
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
             text-align: center;
-            padding: 20px 0;
         }
 
         nav {
-            background-color: #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
             color: #fff;
         }
 
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        nav li {
-            display: inline;
-            margin: 10px;
-        }
-
-        .section {
+        .hero {
+            background-image: url('background.jpg');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            color: #fff;
             padding: 100px 0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #FF5722;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .games, .about, .contact {
+            padding: 50px 0;
             text-align: center;
         }
-
-        .section h2 {
-            font-size: 2rem;
-            color: #333;
-        }
-
-        /* Add more CSS for your cartoony design */
-
     </style>
 </head>
 <body>
     <header>
-        <h1>OnlyStudios</h1>
+        <nav>
+            <div class="logo">
+                <h1>OnlyStudios</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#games">Games</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
     </header>
-    <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
     
-    <section id="home" class="section">
-        <h2>Welcome to our Cartoony World!</h2>
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Welcome to OnlyStudios</h1>
+            <p>Your destination for exciting gaming experiences.</p>
+            <a href="#games" class="cta-button">Explore Games</a>
+        </div>
     </section>
-    
-    <section id="about" class="section">
-        <h2>About Us</h2>
-        <p>We are a fun-loving team dedicated to creating cartoony experiences.</p>
-    </section>
-    
-    <section id="portfolio" class="section">
-        <h2>Our Portfolio</h2>
-        <!-- Add your portfolio items here -->
-    </section>
-    
-    <section id="contact" class="section">
-        <h2>Contact Us</h2>
-        <!-- Add a contact form here -->
-    </section>
-    
-    <footer>
-        <p>&copy; 2023 OnlyStudios</p>
-    </footer>
-    
-    <script>
-        // Smooth scrolling to sections when clicking on navigation links
-        document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href').substring(1);
-                const targetSection = document.getElementById(targetId);
-                
-                window.scrollTo({
-                    top: targetSection.offsetTop,
-                    behavior: 'smooth'
-                });
-            });
-        });
 
-        // Add scroll animations to sections
-        window.addEventListener('scroll', () => {
-            const sections = document.querySelectorAll('.section');
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                const scrollY = window.scrollY;
-                
-                if (scrollY >= sectionTop - sectionHeight / 2 && scrollY < sectionTop + sectionHeight / 2) {
-                    section.classList.add('active');
-                } else {
-                    section.classList.remove('active');
-                }
-            });
-        });
-    </script>
+    <section id="games" class="games">
+        <h2>Our Games</h2>
+        <!-- Insert game images and descriptions here -->
+    </section>
+
+    <section id="about" class="about">
+        <h2>About Us</h2>
+        <p>We are a passionate game development studio dedicated to creating immersive and enjoyable gaming experiences for players worldwide.</p>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <!-- Add contact information and a contact form here -->
+    </section>
+
+    <footer>
+        <p>&copy; 2023 OnlyStudios. All rights reserved.</p>
+    </footer>
 </body>
 </html>
