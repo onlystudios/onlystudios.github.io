@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OnlyStudios</title>
+    <style>
+        /* Basic styling with blue gradient background */
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #0073e6, #005bbf);
+            font-family: Arial, sans-serif;
+            color: white;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        header {
+            background-color: #003366;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 36px;
+        }
+
+        nav ul {
+            list-style: none;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+            transition: transform 0.3s;
+        }
+
+        nav ul li:hover {
+            transform: scale(1.1);
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+
+        .content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 24px;
+        }
+
+        article {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        footer {
+            background-color: #003366;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .download-button {
+            display: none;
+            background-color: #0073e6;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            text-decoration: none;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to OnlyStudios</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="content">
+        <h2>Latest News</h2>
+        <article>
+            <h3>Exciting New Game Releases</h3>
+            <p>Discover the latest retro-inspired games hitting the market.</p>
+            <a href="#">Read More</a>
+        </article>
+        <article>
+            <h3>Community Spotlight</h3>
+            <p>Meet the passionate gamers who keep the retro gaming culture alive.</p>
+            <a href="#">Read More</a>
+        </article>
+    </section>
+    
+    <footer>
+        <p>&copy; 2023 OnlyStudios. All rights reserved.</p>
+    </footer>
+
+    <button class="download-button" id="mac-download-button" style="display: none;">Download for macOS</button>
+    <button class="download-button" id="windows-download-button" style="display: none;">Download for Windows</button>
+    <button class="download-button" id="linux-download-button" style="display: none;">Download for Linux</button>
+    <div id="unsupported-message" style="display: none;">Unsupported</div>
+
+    <script>
+        // Detect operating system and show appropriate button or message
+        const macButton = document.getElementById('mac-download-button');
+        const windowsButton = document.getElementById('windows-download-button');
+        const linuxButton = document.getElementById('linux-download-button');
+        const unsupportedMessage = document.getElementById('unsupported-message');
+
+        const userAgent = navigator.userAgent.toLowerCase();
+
+        if (userAgent.indexOf('win') !== -1) {
+            windowsButton.style.display = 'block';
+        } else if (userAgent.indexOf('mac') !== -1) {
+            macButton.style.display = 'block';
+        } else if (userAgent.indexOf('linux') !== -1) {
+            linuxButton.style.display = 'block';
+        } else {
+            unsupportedMessage.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
