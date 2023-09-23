@@ -21,7 +21,7 @@
         }
 
         header {
-            background-color: #003366;
+            background-color: #FF;
             padding: 20px;
             text-align: center;
         }
@@ -72,17 +72,23 @@
             text-align: center;
         }
 
+        .download-button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
         .download-button {
-            display: none;
             background-color: #0073e6;
             color: white;
-            padding: 10px 20px;
+            padding: 20px 40px;
             border: none;
             border-radius: 5px;
             font-weight: bold;
             text-decoration: none;
-            margin-top: 20px;
             cursor: pointer;
+            font-size: 24px;
         }
     </style>
 </head>
@@ -114,10 +120,12 @@
         <p>&copy; 2023 OnlyStudios. All rights reserved.</p>
     </footer>
 
-    <button class="download-button" id="mac-download-button" style="display: none;">Download for macOS</button>
-    <button class="download-button" id="windows-download-button" style="display: none;">Download for Windows</button>
-    <button class="download-button" id="linux-download-button" style="display: none;">Download for Linux</button>
-    <div id="unsupported-message" style="display: none;">Unsupported</div>
+    <div class="download-button-container">
+        <button class="download-button" id="mac-download-button" style="display: none;">Download for macOS</button>
+        <button class="download-button" id="windows-download-button" style="display: none;">Download for Windows</button>
+        <button class="download-button" id="linux-download-button" style="display: none;">Download for Linux</button>
+        <div id="unsupported-message" style="display: none;">Unsupported</div>
+    </div>
 
     <script>
         // Detect operating system and show appropriate button or message
