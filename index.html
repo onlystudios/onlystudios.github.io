@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coop's WTF - Link in Bio</title>
+    <title>Coop's WTF</title>
     <style>
         body {
             margin: 0;
@@ -40,6 +40,11 @@
             color: white;
             font-size: 24px;
             transition: all 0.5s ease;
+            cursor: pointer;
+        }
+
+        header h1:hover {
+            font-size: 48px;
         }
 
         main {
@@ -96,7 +101,7 @@
 </head>
 <body>
     <header class="show">
-        <h1>Coop's WTF - Link in Bio</h1>
+        <h1 onclick="window.location.href='https://c.oops.wtf/'">Coop's WTF</h1>
     </header>
 
     <main>
@@ -138,12 +143,10 @@
 
                 if (scrollTop === 0) {
                     $('body, header, footer').addClass('top');
-                    $('header h1').css('font-size', '48px');
                     $('header').removeClass('hidden').addClass('show');
                     $('.section').addClass('hidden');
                 } else {
                     $('body, header, footer').removeClass('top');
-                    $('header h1').css('font-size', '24px');
                     $('header').addClass('hidden').removeClass('show');
                     $('.section').removeClass('hidden');
                 }
