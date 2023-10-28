@@ -11,6 +11,7 @@
             background: linear-gradient(to bottom right, #6A6BC8, #A78CC8, #C86BA8);
             background-size: cover;
             background-attachment: fixed;
+            transition: all 0.5s ease;
         }
 
         header {
@@ -21,20 +22,24 @@
             padding: 15px 0;
             text-align: center;
             z-index: 999;
+            transition: all 0.5s ease;
+        }
+
+        header.hidden {
+            top: -80px;
+            opacity: 0;
+        }
+
+        header.show {
+            top: 0;
+            opacity: 1;
         }
 
         header h1 {
             margin: 0;
             color: white;
-        }
-
-        header button {
-            background: #6A6BC8;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
+            font-size: 24px;
+            transition: all 0.5s ease;
         }
 
         main {
@@ -42,6 +47,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            transition: all 0.5s ease;
         }
 
         .section {
@@ -79,12 +85,13 @@
             color: white;
             text-align: center;
             padding: 20px 0;
+            transition: all 0.5s ease;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Coop's WTF</h1>
+    <header class="show">
+        <h1>Coop's WTF - Link in Bio</h1>
         <button>Create your page</button>
     </header>
 
@@ -124,6 +131,14 @@
         $(document).ready(function () {
             $(window).on('scroll', function () {
                 let scrollTop = $(this).scrollTop();
+
+                if (scrollTop === 0) {
+                    $('body, header, footer').addClass('top');
+                    $('header').removeClass('hidden').addClass('show');
+                } else {
+                    $('body, header, footer').removeClass('top');
+                    $('header').addClass('hidden').removeClass('show');
+                }
 
                 $('.section').each(function () {
                     let elementTop = $(this).offset().top;
