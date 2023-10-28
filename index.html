@@ -62,11 +62,12 @@
             border-radius: 10px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
             opacity: 1;
-            transition: opacity 0.6s ease;
+            transition: opacity 0.6s ease, transform 0.6s ease;
         }
 
         .section.hidden {
             opacity: 0;
+            transform: translateY(50px);
         }
 
         .intro {
@@ -145,13 +146,13 @@
                 if (scrollTop === 0) {
                     $('body, header, footer').addClass('top');
                     $('header').removeClass('hidden').addClass('show');
-                    $('.section').removeClass('hidden');
+                    $('.section').removeClass('hidden').css({opacity: 1, transform: 'none'});
                     isScrolled = false;
                 } else {
                     if (!isScrolled) {
                         $('body, header, footer').removeClass('top');
                         $('header').addClass('hidden').removeClass('show');
-                        $('.section').addClass('hidden');
+                        $('.section').addClass('hidden').css({opacity: 0, transform: 'translateY(50px)'});
                         isScrolled = true;
                     }
                 }
@@ -161,7 +162,7 @@
                         let elementTop = $(this).offset().top;
 
                         if (elementTop - $(window).height() < scrollTop) {
-                            $(this).css('opacity', 1);
+                            $(this).css('opacity', 1).css('transform', 'none');
                         }
                     });
                 }
