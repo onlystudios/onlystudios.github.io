@@ -1,4 +1,136 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    c-404 page is not available yet.
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coop's WTF - Link in Bio</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: linear-gradient(to bottom right, #6A6BC8, #8E7DE2);
+            padding: 15px 0;
+            text-align: center;
+            z-index: 999;
+        }
+
+        header h1 {
+            margin: 0;
+            color: white;
+        }
+
+        header button {
+            background: #6A6BC8;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        main {
+            padding-top: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .section {
+            width: 80%;
+            margin: 40px 0;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+
+        .intro {
+            background: linear-gradient(to bottom right, #6A6BC8, #8E7DE2);
+        }
+
+        .features {
+            background: linear-gradient(to bottom right, #8E7DE2, #6A6BC8);
+        }
+
+        .testimonials {
+            background: linear-gradient(to bottom right, #6A6BC8, #8E7DE2);
+        }
+
+        .how-it-works {
+            background: linear-gradient(to bottom right, #8E7DE2, #6A6BC8);
+        }
+
+        .faq {
+            background: linear-gradient(to bottom right, #6A6BC8, #8E7DE2);
+        }
+
+        footer {
+            background: linear-gradient(to bottom right, #6A6BC8, #8E7DE2);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+    </style>
 </head>
+<body>
+    <header>
+        <h1>Coop's WTF - Link in Bio</h1>
+        <button>Create your page</button>
+    </header>
+
+    <main>
+        <section class="section intro">
+            <h2>Welcome to Coop's WTF</h2>
+            <!-- Add content for the Introduction section -->
+        </section>
+
+        <section class="section features">
+            <h2>Key Features</h2>
+            <!-- Add content for Features section -->
+        </section>
+
+        <section class="section testimonials">
+            <h2>Testimonials</h2>
+            <!-- Add content for Testimonials section -->
+        </section>
+
+        <section class="section how-it-works">
+            <h2>How It Works</h2>
+            <!-- Add content for How It Works section -->
+        </section>
+
+        <section class="section faq">
+            <h2>FAQ</h2>
+            <!-- Add content for FAQ section -->
+        </section>
+    </main>
+
+    <footer>
+        <p>Contact Us | About | Privacy Policy | Terms of Use</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(window).on('scroll', function () {
+                let scrollTop = $(this).scrollTop();
+
+                $('.section').each(function () {
+                    let elementTop = $(this).offset().top;
+
+                    if (elementTop - $(window).height() < scrollTop) {
+                        $(this).css('opacity', 1);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
