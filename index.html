@@ -25,16 +25,6 @@
             transition: all 0.5s ease;
         }
 
-        header.hidden {
-            top: -80px;
-            opacity: 0;
-        }
-
-        header.show {
-            top: 0;
-            opacity: 1;
-        }
-
         header h1 {
             margin: 0;
             color: white;
@@ -43,16 +33,12 @@
             cursor: pointer;
         }
 
-        header h1:hover {
-            font-size: 48px;
-        }
-
         main {
             padding-top: 80px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            opacity: 1;
+            opacity: 0;
             transition: opacity 0.6s ease;
         }
 
@@ -66,26 +52,6 @@
             transition: opacity 0.6s ease, transform 0.6s ease;
         }
 
-        .intro {
-            background: linear-gradient(to bottom right, #6A6BC8, #8E7DE2);
-        }
-
-        .features {
-            background: linear-gradient(to bottom right, #8E7DE2, #6A6BC8);
-        }
-
-        .testimonials {
-            background: linear-gradient(to bottom right, #6A6BC8, #8E7DE2);
-        }
-
-        .how-it-works {
-            background: linear-gradient(to bottom right, #8E7DE2, #6A6BC8);
-        }
-
-        .faq {
-            background: linear-gradient(to bottom right, #6A6BC8, #8E7DE2);
-        }
-
         footer {
             background: linear-gradient(to bottom right, #6A6BC8, #8E7DE2);
             color: white;
@@ -93,49 +59,10 @@
             padding: 20px 0;
             transition: all 0.5s ease;
         }
-
-        .create-link {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            cursor: pointer;
-            color: white;
-            opacity: 1;
-            transition: opacity 0.6s ease;
-            z-index: 999;
-        }
-
-        .create-link h2 {
-            font-size: 64px;
-            margin: 10px 0;
-        }
-
-        .create-link p {
-            font-size: 24px;
-            margin: 5px 0;
-        }
-
-        .get-started-button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            background: #6A6BC8;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 20px;
-            transition: all 0.3s ease;
-        }
-
-        .get-started-button:hover {
-            background: #8E7DE2;
-        }
     </style>
 </head>
 <body>
-    <header class="show">
+    <header>
         <h1 onclick="window.location.href='https://c.oops.wtf/'">Coop's WTF</h1>
     </header>
 
@@ -170,12 +97,6 @@
         <p>Contact Us | About | Privacy Policy | Terms of Use</p>
     </footer>
 
-    <div class="create-link" onclick="window.location.href='/create'">
-        <h2>Create your link</h2>
-        <p>Create a link in your bio to standout.</p>
-        <button class="get-started-button" onclick="window.location.href='/create'">Get Started</button>
-    </div>
-
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function () {
@@ -185,23 +106,16 @@
                 let scrollTop = $(this).scrollTop();
 
                 if (scrollTop === 0) {
-                    $('body, header, footer').addClass('top');
-                    $('header').removeClass('hidden').addClass('show');
-                    $('main').addClass('hidden').css('opacity', 0);
-                    $('.create-link').css('opacity', 1);
+                    $('main').css('opacity', 0);
                     isScrolled = false;
                 } else {
                     if (!isScrolled) {
-                        $('body, header, footer').removeClass('top');
-                        $('header').addClass('hidden').removeClass('show');
-                        $('main').removeClass('hidden');
-                        $('.create-link').css('opacity', 0);
+                        $('main').css('opacity', 1);
                         isScrolled = true;
                     }
                 }
 
                 if (scrollTop > 0) {
-                    $('main').css('opacity', 1);
                     $('.section').each(function () {
                         let elementTop = $(this).offset().top;
 
