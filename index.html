@@ -52,7 +52,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            opacity: 0;
+            opacity: 1;
             transition: opacity 0.6s ease;
         }
 
@@ -116,6 +116,22 @@
             font-size: 24px;
             margin: 5px 0;
         }
+
+        .get-started-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #6A6BC8;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .get-started-button:hover {
+            background: #8E7DE2;
+        }
     </style>
 </head>
 <body>
@@ -157,6 +173,7 @@
     <div class="create-link" onclick="window.location.href='/create'">
         <h2>Create your link</h2>
         <p>Create a link in your bio to standout.</p>
+        <button class="get-started-button" onclick="window.location.href='/create'">Get Started</button>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
