@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create | Coop's WTF</title>
+    <title>Coop's WTF</title>
     <style>
         body {
             margin: 0;
@@ -38,36 +38,18 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            opacity: 1;
+            opacity: 0;
             transition: opacity 0.6s ease;
         }
 
-        .create-content {
+        .section {
             width: 80%;
             margin: 40px 0;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-            background: #f7f7f7;
-            text-align: center;
             opacity: 1;
             transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        .get-started-button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            background: #6A6BC8;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 20px;
-            transition: all 0.3s ease;
-        }
-
-        .get-started-button:hover {
-            background: #8E7DE2;
         }
 
         footer {
@@ -76,9 +58,6 @@
             text-align: center;
             padding: 20px 0;
             transition: all 0.5s ease;
-            position: absolute;
-            bottom: 0;
-            width: 100%;
         }
     </style>
 </head>
@@ -88,17 +67,65 @@
     </header>
 
     <main>
-        <div class="create-content">
-            <h2>Create Your Page</h2>
-            <!-- Add content specific to the create page -->
-            <p>Design your unique page here.</p>
-            <button class="get-started-button" onclick="window.location.href='/create'">Get Started</button>
-        </div>
+        <section class="section intro">
+            <h2>Welcome to Coop's WTF</h2>
+            <!-- Add content for the Introduction section -->
+        </section>
+
+        <section class="section features">
+            <h2>Key Features</h2>
+            <!-- Add content for Features section -->
+        </section>
+
+        <section class="section testimonials">
+            <h2>Testimonials</h2>
+            <!-- Add content for Testimonials section -->
+        </section>
+
+        <section class="section how-it-works">
+            <h2>How It Works</h2>
+            <!-- Add content for How It Works section -->
+        </section>
+
+        <section class="section faq">
+            <h2>FAQ</h2>
+            <!-- Add content for FAQ section -->
+        </section>
     </main>
 
     <footer>
         <p>Contact Us | About | Privacy Policy | Terms of Use</p>
     </footer>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            let isScrolled = false;
+
+            $(window).on('scroll', function () {
+                let scrollTop = $(this).scrollTop();
+
+                if (scrollTop === 0) {
+                    $('main').css('opacity', 0);
+                    isScrolled = false;
+                } else {
+                    if (!isScrolled) {
+                        $('main').css('opacity', 1);
+                        isScrolled = true;
+                    }
+                }
+
+                if (scrollTop > 0) {
+                    $('.section').each(function () {
+                        let elementTop = $(this).offset().top;
+
+                        if (elementTop - $(window).height() < scrollTop) {
+                            $(this).css('opacity', 1).css('transform', 'none');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
