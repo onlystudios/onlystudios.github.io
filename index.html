@@ -93,6 +93,23 @@
             padding: 20px 0;
             transition: all 0.5s ease;
         }
+
+        .create-link {
+            text-align: center;
+            cursor: pointer;
+            margin: 50px 0;
+            color: white;
+        }
+
+        .create-link h2 {
+            font-size: 48px;
+            margin: 10px 0;
+        }
+
+        .create-link p {
+            font-size: 18px;
+            margin: 5px 0;
+        }
     </style>
 </head>
 <body>
@@ -100,7 +117,7 @@
         <h1 onclick="window.location.href='https://c.oops.wtf/'">Coop's WTF</h1>
     </header>
 
-    <main class="hidden">
+    <main>
         <section class="section intro">
             <h2>Welcome to Coop's WTF</h2>
             <!-- Add content for the Introduction section -->
@@ -131,6 +148,11 @@
         <p>Contact Us | About | Privacy Policy | Terms of Use</p>
     </footer>
 
+    <div class="create-link" onclick="window.location.href='/create'">
+        <h2>Create your link</h2>
+        <p>Create a link in your bio to standout.</p>
+    </div>
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function () {
@@ -143,12 +165,14 @@
                     $('body, header, footer').addClass('top');
                     $('header').removeClass('hidden').addClass('show');
                     $('main').addClass('hidden').css('opacity', 0);
+                    $('.create-link').css('opacity', 1);
                     isScrolled = false;
                 } else {
                     if (!isScrolled) {
                         $('body, header, footer').removeClass('top');
                         $('header').addClass('hidden').removeClass('show');
                         $('main').removeClass('hidden');
+                        $('.create-link').css('opacity', 0);
                         isScrolled = true;
                     }
                 }
