@@ -42,34 +42,6 @@
             transition: opacity 0.6s ease;
         }
 
-        .create-content {
-            width: 80%;
-            margin: 40px 0;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-            background: #f7f7f7;
-            text-align: center;
-            opacity: 1;
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        .get-started-button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            background: #6A6BC8;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 20px;
-            transition: all 0.3s ease;
-        }
-
-        .get-started-button:hover {
-            background: #8E7DE2;
-        }
-
         .request-form {
             width: 80%;
             margin: 40px 0;
@@ -80,16 +52,40 @@
             text-align: center;
         }
 
-        .request-form input, .request-form textarea {
-            width: 100%;
+        .request-form input,
+        .request-form textarea {
+            width: calc(100% - 20px);
             padding: 10px;
             margin: 10px 0;
-            border-radius: 5px;
             border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: all 0.3s ease;
         }
 
         .request-form textarea {
             height: 100px;
+        }
+
+        .request-form button {
+            padding: 10px 20px;
+            background: #6A6BC8;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .request-form button:hover {
+            background: #8E7DE2;
+        }
+
+        footer {
+            background: linear-gradient(to bottom right, #6A6BC8, #8E7DE2);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            transition: all 0.5s ease;
         }
     </style>
 </head>
@@ -99,12 +95,6 @@
     </header>
 
     <main>
-        <div class="create-content">
-            <h2>Create Your Page</h2>
-            <p>Design your unique page here.</p>
-            <button class="get-started-button" onclick="window.location.href='/create'">Get Started</button>
-        </div>
-
         <div class="request-form">
             <h2>Request an About Me</h2>
             <form>
