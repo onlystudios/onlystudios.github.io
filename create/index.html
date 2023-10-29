@@ -8,7 +8,9 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background: #fff; /* White background for the create page */
+            background: linear-gradient(to bottom right, #6A6BC8, #A78CC8, #C86BA8);
+            background-size: cover;
+            background-attachment: fixed;
             transition: all 0.5s ease;
         }
 
@@ -52,12 +54,31 @@
             transition: opacity 0.6s ease, transform 0.6s ease;
         }
 
+        .get-started-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #6A6BC8;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .get-started-button:hover {
+            background: #8E7DE2;
+        }
+
         footer {
             background: linear-gradient(to bottom right, #6A6BC8, #8E7DE2);
             color: white;
             text-align: center;
             padding: 20px 0;
             transition: all 0.5s ease;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
         }
     </style>
 </head>
@@ -71,6 +92,7 @@
             <h2>Create Your Page</h2>
             <!-- Add content specific to the create page -->
             <p>Design your unique page here.</p>
+            <button class="get-started-button" onclick="window.location.href='/create'">Get Started</button>
         </div>
     </main>
 
