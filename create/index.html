@@ -80,6 +80,20 @@
             background: #8E7DE2;
         }
 
+        .submitted-message {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            z-index: 1000;
+            text-align: center;
+        }
+
         footer {
             background: linear-gradient(to bottom right, #6A6BC8, #8E7DE2);
             color: white;
@@ -97,7 +111,7 @@
     <main>
         <div class="request-form">
             <h2>Request an About Me</h2>
-            <form>
+            <form id="aboutMeForm">
                 <input type="email" placeholder="Your Email" required><br>
                 <input type="text" placeholder="Name/Nickname" required><br>
                 <div>
@@ -108,10 +122,50 @@
                 <button type="submit">Submit</button>
             </form>
         </div>
+
+        <div class="submitted-message" id="submittedMessage">
+            <h2>Submission Received</h2>
+            <p>Your message has been submitted. Thank you!</p>
+        </div>
     </main>
 
     <footer>
         <p>Contact Us | About | Privacy Policy | Terms of Use</p>
     </footer>
+
+    <script>
+        const form = document.getElementById('aboutMeForm');
+        const submittedMessage = document.getElementById('submittedMessage');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const userEmail = form.querySelector('input[type="email"]').value;
+            const userName = form.querySelector('input[type="text"]').value;
+            const userLink = form.querySelector('input[name="userLink"]').value;
+            const userMessage = form.querySelector('textarea').value;
+
+            const payload = {
+                content: `New submission!\nEmail: ${userEmail}\nName: ${userName}\nLink: ${userLink}\nMessage: ${userMessage}`
+            };
+
+            fetch('YOUR_DISCORD_WEBHOOK_URL', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(payload),
+            })
+            .then(response => {
+                if (response.ok) {
+                    form.style.display = 'none'; // Hide the form
+                    submittedMessage.style.display = 'block'; // Show the 'submitted' message
+                } else {
+                    console.error('Failed to send data to Discord');
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    </script>
 </body>
 </html>
